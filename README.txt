@@ -4,5 +4,11 @@ Deskripsi : FunCharity, adalah web penyedia atau jembatan antara orang yang seda
 orang yang membutuhkan antara lain kaum duafa,bencana alam,yatim piatu,pembangunan infrastruktur, dll.
 
 
+Anggota :
+Andi Waluyo -6706154107
+Muhammad ikhsan syahputra - 6706151123
+Muchammad Yusuf - 6706154063
+
+
 -> 4/29/2017 , 10.20 PM --> UPDATE data dari refisi, berupa Penambahan Documentasi
 ->  4/29/2017 , 10.47 PM --> UPDATE penambahan jawaban Routing dan Kasusnya
