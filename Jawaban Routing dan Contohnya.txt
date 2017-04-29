@@ -1,0 +1,17 @@
+Pengertian Routing pada codeigniter,
+
+Routing digunakan untuk memetakan permintaan atau request kedalam Controller didalam web yang akan dibuat,
+
+contoh ,
+jika kita memiliki domain www.kingcode.pe.hu , maka kita bisa mengatur apa yang akan keluar pada tampilan halaman web ketika mengunjungi URL tersebut sesuai dengan yang sudah di atar pada Route pada configurasi CodeIgniter.
+
+contoh penggunaan / settingnya sebagai berikut :
+
+$route['default_controller'] = "admin";
+
+yang artinya, ketika user membuka halaman www.kingcode.pe.hu,
+maka yang akan muncul adalah function pada class yang kita tentukan
+yakni admin pada kasus di atas, maka URL akan berubah menjadi berikut :
+
+www.kingcode.pe.hu/index.php/admin
+
