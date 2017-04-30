@@ -11,4 +11,5 @@ Muchammad Yusuf - 6706154063
 
 
 -> 4/29/2017 , 10.20 PM --> UPDATE data dari refisi, berupa Penambahan Documentasi
-->  4/29/2017 , 10.47 PM --> UPDATE penambahan jawaban Routing dan Kasusnya
+-> 4/29/2017 , 10.47 PM --> UPDATE penambahan jawaban Routing dan Kasusnya
+-> 4/30/2017 , 11.55 PM : Update Data ReadMe pada Folder Documentasi
