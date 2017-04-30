@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Apr 2017 pada 11.32
+-- Generation Time: 30 Apr 2017 pada 18.50
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -37,9 +37,9 @@ CREATE TABLE `tb_admin` (
 --
 
 INSERT INTO `tb_admin` (`no_admin`, `username`, `password`) VALUES
-(2, 'admin1', 'admin1'),
-(3, 'admin2', 'admin2'),
-(4, 'admin3', 'admin3');
+(5, 'admin1', 'admin1'),
+(6, 'admin2', 'admin2'),
+(7, 'admin3', 'admin3');
 
 -- --------------------------------------------------------
 
@@ -53,9 +53,22 @@ CREATE TABLE `tb_agenda` (
   `alamat_agenda` varchar(65) NOT NULL,
   `tgl_setor` date NOT NULL,
   `target_dana` int(11) NOT NULL,
-  `deskripsi_agenda` varchar(250) NOT NULL,
+  `deskripsi_agenda` varchar(2500) NOT NULL,
   `link_gambar` varchar(60) NOT NULL,
   `no_admin` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_donasi`
+--
+
+CREATE TABLE `tb_donasi` (
+  `id_donasi` int(11) NOT NULL,
+  `jumlah_donasi` int(11) NOT NULL,
+  `no_agenda` int(11) NOT NULL,
+  `id_donatur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -65,11 +78,9 @@ CREATE TABLE `tb_agenda` (
 --
 
 CREATE TABLE `tb_donatur` (
-  `no_pengirim` int(11) NOT NULL,
+  `id_donatur` int(11) NOT NULL,
   `nama_donatur` varchar(30) NOT NULL,
-  `email_donatur` varchar(25) NOT NULL,
-  `jumlah_donasi` int(11) NOT NULL,
-  `no_agenda` int(11) NOT NULL
+  `email_donatur` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -87,14 +98,21 @@ ALTER TABLE `tb_admin`
 --
 ALTER TABLE `tb_agenda`
   ADD PRIMARY KEY (`no_agenda`),
-  ADD UNIQUE KEY `fk_admin` (`no_admin`);
+  ADD KEY `fk_admin` (`no_admin`);
+
+--
+-- Indexes for table `tb_donasi`
+--
+ALTER TABLE `tb_donasi`
+  ADD PRIMARY KEY (`id_donasi`),
+  ADD UNIQUE KEY `fk_donatur` (`id_donatur`),
+  ADD KEY `fk_agenda` (`no_agenda`);
 
 --
 -- Indexes for table `tb_donatur`
 --
 ALTER TABLE `tb_donatur`
-  ADD PRIMARY KEY (`no_pengirim`),
-  ADD UNIQUE KEY `fk_agenda` (`no_agenda`);
+  ADD PRIMARY KEY (`id_donatur`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -104,17 +122,39 @@ ALTER TABLE `tb_donatur`
 -- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `no_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `no_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tb_agenda`
 --
 ALTER TABLE `tb_agenda`
-  MODIFY `no_agenda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `no_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `tb_donasi`
+--
+ALTER TABLE `tb_donasi`
+  MODIFY `id_donasi` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tb_donatur`
 --
 ALTER TABLE `tb_donatur`
-  MODIFY `no_pengirim` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_donatur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483647;
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `tb_agenda`
+--
+ALTER TABLE `tb_agenda`
+  ADD CONSTRAINT `tb_agenda_ibfk_1` FOREIGN KEY (`no_admin`) REFERENCES `tb_admin` (`no_admin`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_donasi`
+--
+ALTER TABLE `tb_donasi`
+  ADD CONSTRAINT `tb_donasi_ibfk_1` FOREIGN KEY (`id_donatur`) REFERENCES `tb_donatur` (`id_donatur`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_donasi_ibfk_2` FOREIGN KEY (`no_agenda`) REFERENCES `tb_agenda` (`no_agenda`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
