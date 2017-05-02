@@ -1,0 +1,11 @@
+Perbedaan URL dan URI 
+
+URL (Univofrm Resource Locator)
+1.URL digunakan oleh sebuah browser untuk mengidentifikasi sumber daya yang ada di internet yang dituliskan dalam satu baris teks.
+2.URL merupakan bagian dari URI
+3.URL menunjuk ke suatu halaman web yang menggunakan “scheme” tanpa menggunakan code fragment.
+
+URI (Uniform Resurce Identifier)
+1.URI digunakan browser untuk mengidentifikasi dokumen tunggal dan dituliskan dalam satu baris teks.
+2.URI digunakan untuk mengidentifikasi suatu resource dengan lokasi atau nama, ataupun keduanya.
+3.URI menunjuk ke suatu halaman web, termasuk lokasi code fragmentnya (apabila ada) dan “scheme”.
