@@ -55,68 +55,21 @@
       <div class="container">
         <div class="row">
 
+		<?php
+			foreach($tb_agenda as $agenda){?>
+				
+			
           <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
             <div class="thumbnail">
               <img class="list" src="<?php echo base_url('file/asset/img/2.jpg')?>" alt="...">
               <div class="caption">
-                <h3>Tanah Longsor</h3>
+                <h3><? $agenda->judul_agenda;?></h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
               </div>
             </div>
           </a>
-
-          <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
-            <div class="thumbnail">
-              <img class="list" src="<?php echo base_url('file/asset/img/1.jpg')?>" alt="...">
-              <div class="caption">
-                <h3>Tanah Longsor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
-            <div class="thumbnail">
-              <img class="list" src="<?php echo base_url('file/asset/img/tanahlongsor.jpg')?>" alt="...">
-              <div class="caption">
-                <h3>Tanah Longsor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
-              </div>
-            </div>
-          </a>
-        </div><!--End of row one-->
-
-        <div class="row margin">
-          <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
-            <div class="thumbnail">
-              <img class="list" src="<?php echo base_url('file/asset/img/2.jpg')?>" alt="...">
-              <div class="caption">
-                <h3>Tanah Longsor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
-            <div class="thumbnail">
-              <img class="list" src="<?php echo base_url('file/asset/img/1.jpg')?>" alt="...">
-              <div class="caption">
-                <h3>Tanah Longsor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
-            <div class="thumbnail">
-              <img class="list" src="<?php echo base_url('file/asset/img/tanahlongsor.jpg')?>" alt="...">
-              <div class="caption">
-                <h3>Tanah Longsor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
-              </div>
-            </div>
-          </a>
-
+		
+		<?php } ?>
         </div><!--End Row-->
       </div><!--End Container -->
 
