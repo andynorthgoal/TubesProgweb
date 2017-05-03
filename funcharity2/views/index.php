@@ -13,7 +13,7 @@
      <script src="<?php echo base_url('file/bootstrap/js/html5shiv.js') ?>"></script>
      <script src="<?php echo base_url('file/bootstrap/js/respond.min.js') ?>"></script>
 
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/css/style.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/css/tes.css') ?>">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/mdl/material.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/mdl/material.min.css') ?>">
@@ -67,58 +67,55 @@
   <!--Content-->
   <div class="content">
     <div class="container">
-      <div class="row">
 
-        <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
-          <div class="thumbnail">
-            <img class="list" src="<?php echo base_url('file/asset/img/2.jpg')?>" alt="...">
-            <div class="caption">
-              <h3>Tanah Longsor</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
-            </div>
-          </div>
-        </a>
+        <!--List Agenda-->
+        <?php
+		$i=0;
+        foreach ($agenda as $list) {
+		  $i++;
+          if($i % 3 == 0){
+              echo "<div class=\"row\">";
+          }
+		 
+          //#code..?>
+             <a href="<?php echo base_url('index.php/beranda/detail/'.$list->no_agenda)?>" class="col-md-4 list" role="button">
+              <div class="thumbnail">
+                <img class="list" src="<?php echo base_url('file/asset/img/2.jpg')?>" alt="...">
+                <div class="caption">
+                  <h3><?php echo $list->judul_agenda ?></h3>
+                  <p><?php echo substr($list->deskripsi_agenda,0,100)."....."; ?></p>
+                </div>
+              </div>
+            </a>
 
-        <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
-          <div class="thumbnail">
-            <img class="list" src="<?php echo base_url('file/asset/img/1.jpg')?>" alt="...">
-            <div class="caption">
-              <h3>Tanah Longsor</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
-            </div>
-          </div>
-        </a>
+        <?php
+          if($i % 3 == 0 ){
+              echo "</div>";
+              echo "<div class=\"margin\">";
+              echo "</div>";
+          }
+        }
+        ?>
+        <!--End of List Agenda-->
 
-        <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
-          <div class="thumbnail">
-            <img class="list" src="<?php echo base_url('file/asset/img/tanahlongsor.jpg')?>" alt="...">
-            <div class="caption">
-              <h3>Tanah Longsor</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
-            </div>
-          </div>
-        </a>
-
-      </div><!--End Row-->
-      <center>
-        <a class="btn btn-lg btn-primary" style="margin:40px;" href="<?php echo base_url('index.php/beranda/donasi') ?>" role="button">Lihat Semua</a>
-      </center>
+      
     </div><!--End Container -->
-  </div>
+  </div><!--End Content-->
+	<center>
+	   <div class="row">
+         <a class="btn btn-lg btn-primary text-center" style="margin:40px;" href="<?php echo base_url('index.php/beranda/donasi') ?>" role="button">Lihat Semua</a>
+       </div>
+	  </center>
   <div class="content">
     <div class="content-white"></div>
   </div>
 
-  <!--Footer-->
-  <footer class="mdl-mini-footer">
-    <div class="mdl-mini-footer__left-section">
-      <div class="mdl-logo">Title</div>
-      <ul class="mdl-mini-footer__link-list">
-        <li><a href="#">Help</a></li>
-        <li><a href="#">Privacy & Terms</a></li>
-      </ul>
-    </div>
-  </footer>
+  <!-- footer -->
+    <footer class="mdl-mini-footer">
+      <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">&copy; 2017  FunCharity | Design by <a href="#">King Code</a></div>
+      </div>
+   </footer>
 </body>
 
 

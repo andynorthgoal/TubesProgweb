@@ -1,8 +1,8 @@
 <html>
 <title></title>
 <head>
-    
-    
+
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/bootstrap/css/bootstrap.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/bootstrap/css/normalize.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/bootstrap/css/component.css') ?>">
@@ -10,18 +10,18 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/bootstrap/css/font-awesome.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/bootstrap/css/demo.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/bootstrap/font-awesome-ie7.css') ?>">
-    
+
      <script src="<?php echo base_url('file/bootstrap/js/jquery.mobilemenu.js') ?>"></script>
      <script src="<?php echo base_url('file/bootstrap/js/html5shiv.js') ?>"></script>
      <script src="<?php echo base_url('file/bootstrap/js/respond.min.js') ?>"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/mdl/material.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/mdl/material.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/mdl/material.min.css.map') ?>">
     <script src="<?php echo base_url('file/mdl/material.js') ?>"></script>
     <script src="<?php echo base_url('file/mdl/material.min.js') ?>"></script>
     <script src="<?php echo base_url('file/mdl/material.min.js.map') ?>"></script>
-    
+
 </head>
 <body>
    <!-- Always shows a header, even in smaller screens. -->
@@ -33,32 +33,56 @@
       <span class="mdl-layout-title">  Fun Charity</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
-      <!-- Navigation. We hide it in small screens. -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="<?php echo base_url('index.php/beranda/home') ?>">Agenda</a>
-        <a class="mdl-navigation__link" href="<?php echo base_url('index.php/beranda/donasi') ?>">Donasi</a>
-        <a class="mdl-navigation__link" href="<?php echo base_url('index.php/beranda/aboutus') ?>">Tentang Kami</a>
-      </nav>
+      <!-- Navigation -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" role="button" href="<?php echo base_url('index.php/beranda/home') ?>">Beranda</a>
+          <a class="mdl-navigation__link" href="<?php echo base_url('index.php/beranda/donasi') ?>">Agenda</a>
+          <a class="mdl-navigation__link" href="<?php echo base_url('index.php/beranda/aboutus') ?>">Tentang Kami</a>
+        </nav>
     </div>
   </header>
-  
+
   <main class="mdl-layout__content">
+   <div class="container">
+        <h1 align="center"><b>Tentang Kami</b></h1>
+        <h4 align="center" font-size="20pt"><b> </b></h4>
+    </div>
     <div class="page-content">
     <!-- Container -->
         <div class="container" align="center">
-                    <div class="col-sm-8">
-                      <h2>FUN CHARITY</h2>
-                      <img src="<?php echo base_url('file/asset/img/banner1.jpg') ?>" alt="" style="width:600px; height:350px;">
-                      <h4><strong>MISI:</strong> Membantu kaum yang kurang beruntung atau yang kurang mampu</h4>      
-                      <p><strong>VISI:</strong> Penggalangan Dana Online , dari teman-teman yang beruntung</p>
-                    </div>
-        </div>
-         <!-- footer --> 
-        <footer class="mdl-mini-footer" style="background-color:#263238">
-          <div class="mdl-mini-footer__left-section">
-            <div class="mdl-logo">&copy; 2017  FunCharity | Design by <a href="#">King Code</a></div>
+          <div class="col-sm-12 col-md-4">
+             <img src="<?php echo base_url('asset/img/andi.png') ?>" alt="" class="img-circle" style="width:250px; height:250px;">
+              <div class="caption">
+                <h3>Andi Waluyo</h3>
+                <h5>6706154107</h5>
+			        </div>
           </div>
-        </footer>
+          <div class="col-sm-12 col-md-4">
+             <img src="<?php echo base_url('asset/img/ikhsan.png') ?>" alt="" class="img-circle" style="width:250px; height:250px;">
+              <div class="caption">
+                <h3>M. Ikhsan Syahputra</h3>
+                <h5>6706151123</h5>
+			        </div>
+          </div>
+          <div class="col-sm-12 col-md-4">
+             <img src="<?php echo base_url('file/asset/img/ucup.jpg') ?>" alt="" class="img-circle" style="width:250px; height:250px;">
+              <div class="caption">
+                <h3>Muchammad Yusuf</h3>
+                <h5>6706154063</h5>
+			        </div>
+          </div>
+
+          </div><!--End of row one-->
+        </div>
+		<div class="container" >
+		 </br></br>
+		</div>
+    <!-- footer -->
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">&copy; 2017  FunCharity | Design by <a href="#">King Code</a></div>
+        </div>
+     </footer>
     </div>
   </main>
 </div>

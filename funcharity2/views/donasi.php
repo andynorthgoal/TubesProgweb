@@ -16,7 +16,7 @@
      <script src="<?php echo base_url('file/bootstrap/js/jquery.js') ?>"></script>
      <script src="<?php echo base_url('file/bootstrap/js/bootsrap.js') ?>"></script>
 
-     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/css/style.css') ?>">
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/css/tes.css') ?>">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/mdl/material.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('file/mdl/material.min.css') ?>">
@@ -27,6 +27,7 @@
     <script src="<?php echo base_url('file/mdl/material.min.js.map') ?>"></script>
 </head>
 <body>
+  <div class="list-agenda">
   <!-- Always shows a header, even in smaller screens. -->
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
@@ -48,68 +49,74 @@
 
     <!--Title-->
     <div class="container">
-        <h1 align="center">Daftar Kegiatan</h1>
-        <h4 align="center" font-size="20pt">Pilih dan salurkan donasi untuk daftar kegiatan yang berarti bagi Anda.</h4>
+        <h1 align="center"><b>Daftar Kegiatan</b></h1>
+        <h4 align="center" font-size="20pt"><b>Pilih dan salurkan donasi
+          untuk daftar kegiatan yang berarti bagi Anda.</b></h4>
     </div>
     <!--Content-->
-      <div class="container">
-        <div class="row">
+    <div class="content">
+        <div class="container">
+            <!--List Agenda-->
+        <?php
+		$i=0;
+        foreach ($agenda as $list) {
+		  $i++;
+          if($i % 3 == 0){
+              echo "<div class=\"row\">";
+          }
 
-		<?php
-			foreach($tb_agenda as $agenda){?>
-				
-			
-          <a href="<?php echo base_url('index.php/beranda/donasi') ?>" class="col-sm-6 col-md-4 list" role="button">
-            <div class="thumbnail">
-              <img class="list" src="<?php echo base_url('file/asset/img/2.jpg')?>" alt="...">
-              <div class="caption">
-                <h3><? $agenda->judul_agenda;?></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
+		 
+          //#code..?>
+             <a href="<?php echo base_url('index.php/beranda/detail/'.$list->no_agenda)?>" class="col-md-4 list" role="button">
+              <div class="thumbnail">
+                <img class="list" src="<?php echo base_url('file/asset/img/2.jpg')?>" alt="...">
+                <div class="caption">
+                  <h3><?php echo $list->judul_agenda ?></h3>
+                  <p><?php echo substr($list->deskripsi_agenda,0,100)."....."; ?></p>
+                </div>
               </div>
+            </a>
+
+        <?php
+          if($i % 3 == 0 ){
+              echo "</div>";
+              echo "<div class=\"margin\">";
+              echo "</div>";
+          }
+        }
+        ?>
+        <!--End of List Agenda-->
+
+            <div class="col-md-offset-4">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
             </div>
-          </a>
-		
-		<?php } ?>
-        </div><!--End Row-->
+
       </div><!--End Container -->
-
-
-    <!-- Pagination -->
-    <div class="row text-center">
-      <div class="col-lg-12">
-          <ul class="pagination">
-              <li>
-                  <a href="#">&laquo;</a>
-              </li>
-              <li class="active">
-                  <a href="#">1</a>
-              </li>
-              <li>
-                  <a href="#">3</a>
-              </li>
-              <li>
-                  <a href="#">4</a>
-              </li>
-              <li>
-                  <a href="#">5</a>
-              </li>
-              <li>
-                  <a href="#">&raquo;</a>
-              </li>
-          </ul>
-      </div>
-    </div>
+    </div><!-- Enc of Content-->
 
      <!-- footer -->
-    <footer class="mdl-mini-footer">
-      <div class="mdl-mini-footer__left-section">
-        <div class="mdl-logo">Title</div>
-        <ul class="mdl-mini-footer__link-list">
-          <li><a href="#">Help</a></li>
-          <li><a href="#">Privacy & Terms</a></li>
-        </ul>
-      </div>
-   </footer>
+       <footer class="mdl-mini-footer">
+         <div class="mdl-mini-footer__left-section">
+           <div class="mdl-logo">&copy; 2017  FunCharity | Design by <a href="#">King Code</a></div>
+         </div>
+      </footer>
+   </div>
 </body>
  <!-- jQuery -->
     <script src="js/jquery.js"></script>

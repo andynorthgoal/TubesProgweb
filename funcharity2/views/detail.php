@@ -29,10 +29,8 @@
       <!-- Title -->
 	  <img src="<?php echo base_url('file/asset/img/FunCharityLogo.png') ?>" alt="" class="img-responsive" width="40px" height="40px">
       <span class="mdl-layout-title"> Fun Charity</span>
-
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
-
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <a class="mdl-navigation__link" href="<?php echo base_url('index.php/beranda/home') ?>">Beranda</a>
@@ -41,43 +39,48 @@
       </nav>
     </div>
   </header>
-
+  <?php foreach ($detail_agenda as $agenda): ?>
   <main class="mdl-layout__content">
     <div class="page-content">
-	     <div class="container">
-         <div class="col-sm-8">
-           <h2>FUN CHARITY</h2>
-        </div>
+	 <div class="container">
+                    <div class="col-sm-8">
+                      <h2><?php echo $agenda->judul_agenda; ?></h2>
 
+					</div>
      <!-- Container -->
-     <div class="container" >
-       <div class="row">
-         <div class="col-md-8">
-           <img class="img-responsive" src="http://placehold.it/700x350" alt="">
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-           <h4><strong>MISI:</strong> Membantu kaum yang kurang beruntung atau yang kurang mampu</h4>
-           <p><strong>VISI:</strong> Penggalangan Dana Online , dari teman-teman yang beruntung</p>
-         </div>
-         <div class="col-md-4">
-           <h2>Target Dana </h2>
-           <h3>RP. 400.000.000.-</h3>
-           <h5>hingga 01 Mei 2017<h5>
-             <div class="col-xs-6">
-               <p><a class="btn btn-danger btn-lg" href="<?php echo base_url('index.php/beranda/donasi') ?>" role="button">Donasi Sekarang</a></p>
-               <p><a class="btn btn-primary btn-lg" href="<?php echo base_url('index.php/beranda/donasi') ?>" role="button">Share Facebook</a></p>
-             </div>
-         </div>
-       </div>
-     </div>
-   </div>
-    <!-- footer -->
-    <footer class="mdl-mini-footer" style="background-color:#263238">
-      <div class="mdl-mini-footer__left-section">
-        <div class="mdl-logo">&copy; 2017  FunCharity | Design by <a href="#">King Code</a></div>
-      </div>
-    </footer>
+        <div class="container" >
+             <div class="row">
+				<div class="col-md-8">
+					<img src="<?php echo base_url('asset/img/Agenda/kegiatansosial.png')?>" alt="" style="width:730px; height:450px;"><br><br>
+					<h6 name="detail"><?php echo $agenda->deskripsi_agenda; ?></h6>
+				</div>
 
-	</div>
+            <div class="col-md-4">
+                <h2>Target Dana </h2>
+				<h3>Rp. <?php echo $agenda->target_dana; ?></h3>
+				<h5>pengumpulan dana : <?php echo $agenda->tgl_setor; ?><h5>	
+				<div class="col-xs-6">
+                <p><a class="btn btn-danger btn-lg" href="<?php echo base_url('index.php/beranda/contribut') ?>" role="button">Donasi Sekarang</a></p>
+				<div class="socialfloat">
+				<!-- Facebook Share Button -->
+				<a class="fbtn share facebook" href="#"><i class="fa fa-facebook"></i></a>
+                <p><a class="btn btn-primary btn-lg" href="http://www.facebook.com/sharer/sharer.php?u=http://[::1]/funcharity/index.php/beranda/pontren	" role="button">Share Facebook</a></p>
+				</div>
+            </div>
+		
+			</div>
+        </div>
+		</div>
+		<?php endforeach; ?>
+       <!-- footer -->
+	  </div>
+    <footer class="mdl-mini-footer">
+      <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">&copy; 2017  FunCharity | Design by <a href="https://kingcodeblog.wordpress.com/">King Code</a></div>
+      </div>
+   </footer>
+
+	
   </main>
 </div>
 </body>
