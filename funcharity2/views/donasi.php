@@ -48,11 +48,11 @@
       </header>
 
     <!--Title-->
-    <div class="container">
-        <h1 align="center"><b>Daftar Kegiatan</b></h1>
+	<div class="container">
+	 <h1 align="center"><b>Daftar Kegiatan</b></h1>
         <h4 align="center" font-size="20pt"><b>Pilih dan salurkan donasi
           untuk daftar kegiatan yang berarti bagi Anda.</b></h4>
-    </div>
+	  </div>
     <!--Content-->
     <div class="content">
         <div class="container">
