@@ -23,6 +23,7 @@ class Admin extends CI_Controller{
         $this->load->view('buat_agenda',$data);
 	}
 	
+	
 	//insert table agenda
     function create_agenda(){
 		
@@ -91,8 +92,18 @@ class Admin extends CI_Controller{
 	}
 	
 	//view table donatur
-	 function donatur_table(){
-        $this->load->view('tabel_donatur.php');
+	
+	function donatur_table(){
+		$this->load->database();
+		$jumlah_data = $this->agenda_m->jumlah_data();
+		$this->load->library('pagination');
+		$config['base_url'] = base_url().'index.php/admin/agenda_table/';
+		$config['total_rows'] = $jumlah_data;
+		$config['per_page'] = 6;
+		$from = $this->uri->segment(3);
+		$this->pagination->initialize($config);		
+		$data['donatur'] = $this->agenda_m->data2($config['per_page'],$from);
+        $this->load->view('tabel_donatur.php',$data);
     }
 	
 }
