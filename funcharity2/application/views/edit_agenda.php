@@ -26,20 +26,20 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li >
-                            <a href="<?php echo base_url('index.php/admin') ?>" ><i class="fa fa-dashboard fa-fw nav_icon"></i>Beranda</a>
+                            <a href="<?php echo base_url('index.php/admin') ?>" ><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
                         </li>
 						<li>
-                            <a href="<?php echo base_url('index.php/admin/create_agenda') ?>" style="color:#FFF;"><i class="fa fa-laptop fa-fw nav_icon" style="color:#FFF;"></i>Buat Agenda</a>
+                            <a href="<?php echo base_url('index.php/admin/form_agenda') ?>" style="color:#FFF;"><i class="fa fa-laptop fa-fw nav_icon" style="color:#FFF;"></i>Buat Agenda</a>
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-table nav_icon"></i>Tables</a>
+                            <a href="#"><i class="fa fa-table nav_icon"></i>Management</a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url('index.php/admin/agenda_table') ?>">Tabel Agenda</a>
+                                    <a href="<?php echo base_url('index.php/admin/agenda_table') ?>">Agenda</a>
                                 </li>
 								 <li>
-                                    <a href="<?php echo base_url('index.php/admin/donatur_table') ?>">Tabel Donatur</a>
+                                    <a href="<?php echo base_url('index.php/admin/donatur_table') ?>">Donatur</a>
                                 </li>
                             </ul>
 							
@@ -65,40 +65,54 @@
   	
 		
 
-    
+    <?php foreach ($agenda as $agendas): ?>
 	<!-- Form Name -->
 	<legend>Buat Agenda</legend>
-	<?php echo form_open("admin/action_edit_mhs/".$no_agenda); ?> 
+	<?php echo form_open("admin/action_edit_agenda"); ?> 
 		<table border=0 align="center">
+			<tr>
+				<td label >Pilih Admin</td><?php echo form_error('judulAgenda', '<div style="color:red">','</div>');?>
+				<td label class="control-label">
+				<select class="form-control" name="adminChooice">
+					<option><?php echo $agendas->no_admin; ?></option>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<td label >Kode Agenda</td><?php echo form_error('kodeAgenda', '<div style="color:red">','</div>');?>
+				<td label class="control-label">
+					<input value="<?php echo $agendas->no_agenda; ?>" type="text" name="kodeAgenda" placeholder="contoh : Sumbangan Pantiasuhan" class="form-control">
+				</td>
+			</tr>
 			<tr>
 				<td label >Judul Agenda</td><?php echo form_error('judulAgenda', '<div style="color:red">','</div>');?>
 				<td label class="control-label">
-					<input type="text" name="judulAgenda" placeholder="contoh : Sumbangan Pantiasuhan" class="form-control">
+					<input value="<?php echo $agendas->judul_agenda; ?>" type="text" name="judulAgenda" placeholder="contoh : Sumbangan Pantiasuhan" class="form-control">
 				</td>
 			</tr>
 			<tr>
 				<td label >Alamat Agenda</td><?php echo form_error('alamatAgenda', '<div style="color:red">','</div>');?>
 				<td label class="control-label">
-					<input type="text" name="alamatAgenda" placeholder="contoh : Bandung / Jakarta" class="form-control" style="width:800px;">
+					<input value="<?php echo $agendas->alamat_agenda; ?>" type="text" name="alamatAgenda" placeholder="contoh : Bandung / Jakarta" class="form-control" style="width:800px;">
 				</td>
 			</tr>
 			<tr>
 				<td label >Tanggal Akhir</td><?php echo form_error('tglSetor', '<div style="color:red">','</div>');?>
 				<td label class="control-label">
-					<input type="date" name="tglSetor" class="form-control">
+					<input value="<?php echo $agendas->tgl_setor; ?>"type="date" name="tglSetor" class="form-control">
 				</td>
 			</tr>
 			<tr>
 				<td label >Target dana (Rp.)</td><?php echo form_error('targetDana', '<div style="color:red">','</div>');?>
 				<td label class="control-label">
-					<input type="text" name="targetDana" placeholder="contoh : 1000000 / 2000000" class="form-control">
+					<input value="<?php echo $agendas->target_dana; ?>" type="text" name="targetDana" placeholder="contoh : 1000000 / 2000000" class="form-control">
 				</td>
 			</tr>
 			
 			<tr>
 				<td label >Deskripsi</td><?php echo form_error('deskripsiAgenda', '<div style="color:red">','</div>');?>
 				<td label class="control-label">
-					<textarea class="form-control" rows="10" name="deskripsiAgenda"></textarea>
+					<textarea class="form-control" rows="10" name="deskripsiAgenda"><?php echo $agendas->deskripsi_agenda; ?></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -110,7 +124,7 @@
 			</tr>
 		</table>
 	</form>
-
+<?php endforeach; ?>
     </div><!-- /.container -->
 	
       </div><!-- /.table-responsive -->
