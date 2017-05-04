@@ -14,3 +14,4 @@ Muchammad Yusuf - 6706154063
 -> 4/29/2017 , 10.47 PM --> UPDATE penambahan jawaban Routing dan Kasusnya
 -> 4/30/2017 , 11.55 PM : Update Data ReadMe pada Folder Documentasi
 -> 5/02/2017 , 01.44 PM : Update jawaban  Uri dan Url
+-> 5/04/2017 , 08.48 AM : Update MVC (Model View dan Controller) di Folder : funcharity2
