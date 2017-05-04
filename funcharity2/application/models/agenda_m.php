@@ -17,6 +17,10 @@ class agenda_m extends CI_Model{
 			return $query = $this->db->get("tb_agenda",$number,$offset)->result();		
 	}
 	
+	function data2($number,$offset){
+			return $query = $this->db->get("tb_donasi",$number,$offset)->result();		
+	}
+	
 	function jumlah_data(){
 			return $this->db->get("tb_agenda")->num_rows();
 	}
