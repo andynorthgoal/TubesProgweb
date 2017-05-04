@@ -57,34 +57,41 @@
     <div class="content">
         <div class="container">
             <!--List Agenda-->
-            <?php
-            for ($i=1; $i <= 9; $i++) {
-              if($i % 3 == 0){
-                  echo "<div class=\"row\">";
-              }
+        <?php
+		$i=0;
+        foreach ($agenda as $list) {
+		  $i++;
+          if($i % 3 == 0){
+              echo "<div class=\"row\">";
+          }
 
-              //#code..?>
-                <a href="<?php echo base_url('index.php/beranda/detail') ?>" class="col-md-4 list" role="button">
-                  <div class="thumbnail">
-                    <img class="list" src="<?php echo base_url('file/asset/img/tanahlongsor.jpg')?>" alt="...">
-                    <div class="caption">
-                      <h3>Tanah Longsor</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tortor maximus nisl porta hendrerit feugiat eget mi. Nullam massa urna, posuere a tristique tincidunt, tempor eu dolor. Integer nec sem enim......s</p>
-                    </div>
-                  </div>
-                </a>
+		 
+          //#code..?>
+             <a href="<?php echo base_url('index.php/beranda/detail/'.$list->no_agenda)?>" class="col-md-4 list" role="button">
+              <div class="thumbnail">
+                <img class="list" src="<?php echo base_url('file/asset/img/2.jpg')?>" alt="...">
+                <div class="caption">
+                  <h3><?php echo $list->judul_agenda ?></h3>
+                  <p><?php echo substr($list->deskripsi_agenda,0,100)."....."; ?></p>
+                </div>
+              </div>
+            </a>
 
-            <?php
-              if($i % 3 == 0 ){
-                  echo "</div>";
-                  echo "<div class=\"margin\">";
-                  echo "</div>";
-              }
-            }
-            ?>
-            <!--End of List Agenda-->
+        <?php
+          if($i % 3 == 0 ){
+              echo "</div>";
+              echo "<div class=\"margin\">";
+              echo "</div>";
+          }
+        }
+        ?>
+        <!--End of List Agenda-->
 
-            <div class="col-md-offset-4">
+           
+
+      </div><!--End Container -->
+    </div><!-- Enc of Content-->
+ <div class="col-md-offset-4">
               <ul class="pagination">
                 <li>
                   <a href="#" aria-label="Previous">
@@ -103,10 +110,6 @@
                 </li>
               </ul>
             </div>
-
-      </div><!--End Container -->
-    </div><!-- Enc of Content-->
-
      <!-- footer -->
        <footer class="mdl-mini-footer">
          <div class="mdl-mini-footer__left-section">
