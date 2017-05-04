@@ -12,9 +12,17 @@ class Admin extends CI_Controller{
 	}
  
 	function index(){
-		$this->load->view('buat_agenda');
+		$data['agenda'] = $this->agenda_m->getAgendaCount();
+		$data['donasi'] = $this->agenda_m->getDonasiCount();
+		$this->load->view('dashboard',$data);
 	}
     
+	function form_agenda() {
+		$data['title']= 'Admin FunCharity';
+        $data['groups'] = $this->agenda_m->getAllAdmin();
+        $this->load->view('buat_agenda',$data);
+	}
+	
 	//insert table agenda
     function create_agenda(){
 		
@@ -23,7 +31,8 @@ class Admin extends CI_Controller{
 			'alamat_agenda' => $this->input->post('alamatAgenda'),
 			'tgl_setor' => $this->input->post('tglSetor'),
 			'target_dana' => $this->input->post('targetDana'),
-			'deskripsi_agenda' => $this->input->post('deskripsiAgenda')
+			'deskripsi_agenda' => $this->input->post('deskripsiAgenda'),
+			'no_admin' => $this->input->post('adminChooice')
 		);
 				
 		$insert = $this->agenda_m->insert_agenda($data);
@@ -61,28 +70,24 @@ class Admin extends CI_Controller{
 	}
 	
 	//edit from table agenda
-	function edit_agenda($no_agenda){
-		$data['no_agenda'] = $no_agenda;
+	function edit_age($no_agenda){
+		$data['agenda'] = $this->agenda_m->show_agenda($no_agenda);
 		$this->load->view('edit_agenda',$data);
 	}
 	
-	function action_edit_agenda($no_agenda){
+	function action_edit_agenda(){
 			
-			$where['no_agenda'] = $no_agenda;
+			$id= $this->input->post('kodeAgenda');
 			$value = array(
 				'judul_agenda' => $this->input->post('judulAgenda'),
 				'alamat_agenda' => $this->input->post('alamatAgenda'),
 				'tgl_setor' => $this->input->post('tglSetor'),
 				'target_dana' => $this->input->post('targetDana'),
-				'deskripsi_agenda' => $this->input->post('deskripsiAgenda')
+				'deskripsi_agenda' => $this->input->post('deskripsiAgenda'),
+				'no_admin' => $this->input->post('adminChooice')
 			);
-			$update = $this->agenda_m->edit_agenda($value,$where);
-			if($update){
-				redirect('admin/agenda_table');
-			}
-			else{
-				echo "gagal";
-			}
+			$this->agenda_m->edit_agendas($id,$value);
+			redirect('admin/agenda_table');
 	}
 	
 	//view table donatur

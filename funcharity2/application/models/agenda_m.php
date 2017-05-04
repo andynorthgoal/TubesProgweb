@@ -15,11 +15,12 @@ class agenda_m extends CI_Model{
 	
 	function data($number,$offset){
 			return $query = $this->db->get("tb_agenda",$number,$offset)->result();		
-		}
+	}
 	
 	function jumlah_data(){
 			return $this->db->get("tb_agenda")->num_rows();
 	}
+
 	
 	public function delete_agenda($no_agenda){
 
@@ -31,13 +32,34 @@ class agenda_m extends CI_Model{
 			return $even;
 		}
 		
-		function edit_agenda($value ,$where)
+		function edit_agendas($id ,$value)
 		{
-			$this->db->where($where);
-			$even = $this->db->update("tb_agenda",$value);
-			return $even;
+			$this->db->where('no_agenda', $id);
+			$this->db->update('tb_agenda', $value);
 		}
 	
+	public function getAllAdmin() {
+		$query = $this->db->query('SELECT * FROM tb_admin');
+        return $query->result();
+	}
+	
+	public function getAgendaCount() {
+		$this->db->from('tb_agenda');
+		return $this->db->count_all_results();
+	}
+	public function getDonasiCount() {
+		$this->db->from('tb_donasi');
+		return $this->db->count_all_results();
+	}
+	
+	function show_agenda($data){
+		$this->db->select('*');
+		$this->db->from('tb_agenda');
+		$this->db->where('no_agenda', $data);
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+	}
 	
 }
 

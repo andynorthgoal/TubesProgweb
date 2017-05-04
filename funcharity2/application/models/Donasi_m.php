@@ -20,7 +20,7 @@ class Donasi_m extends CI_Model{
     return $res;
   }
 
-  public function Delete($table, $where){
+  public function deletes($table, $where){
 		$res = $this->db->delete($delete, $where);
 		return $res;
 	}
