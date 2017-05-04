@@ -27,20 +27,20 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li >
-                            <a href="<?php echo base_url('index.php/admin') ?>" ><i class="fa fa-dashboard fa-fw nav_icon" ></i>Beranda</a>
+                            <a href="<?php echo base_url('index.php/admin') ?>" ><i class="fa fa-dashboard fa-fw nav_icon" ></i>Dashboard</a>
                         </li>
 						<li>
-                            <a href="<?php echo base_url('index.php/admin/create_agenda') ?>"><i class="fa fa-laptop fa-fw nav_icon"></i>Buat Agenda</a>
+                            <a href="<?php echo base_url('index.php/admin/form_agenda') ?>"><i class="fa fa-laptop fa-fw nav_icon"></i>Buat Agenda</a>
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-table nav_icon"></i>Tables</a>
+                            <a href="#"><i class="fa fa-table nav_icon"></i>Management</a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url('index.php/admin/agenda_table') ?>">Tabel Agenda</a>
+                                    <a href="<?php echo base_url('index.php/admin/agenda_table') ?>">Agenda</a>
                                 </li>
 								 <li>
-                                    <a href="<?php echo base_url('index.php/admin/donatur_table') ?>"style="color:#FFF;">Tabel Donatur</a>
+                                    <a href="<?php echo base_url('index.php/admin/donatur_table') ?>"style="color:#FFF;">Donatur</a>
                                 </li>
                             </ul>
 							
@@ -63,27 +63,31 @@
         <div id="page-wrapper">
         <div class="col-md-12 graphs">
 	   <div class="xs">
-  	 <h3>Tabel Donatur</h3>
+  	 <h3>Management Donatur</h3>
   	<div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
 				<div class="panel-body no-padding">
 					<table class="table table-striped">
 						<thead>
-							<tr class="warning">
-								<th>Kode</th>
-								<th>Pengirim</th>
-								<th>Email</th>
-								<th>Jumlah Donasi</th>
-								<th>Kode Agenda</th>
+						 
+							<tr class="success">
+								<th><center>Kode Donasi</center></th>
+								<th><center>Jumlah Donasi</center></th>
+								<th><center>Kode Agenda</center></th>
+								<th><center>Kode Donatur</center></th>
 							</tr>
 						</thead>
 						<tbody>
+						<?php 
+							$no = 1;
+							foreach($donatur as $u){ 
+						?>
 							<tr>
-								<td>1</td>
-								<td>dermawan</td>
-								<td>dermawan@gmail.com</td>
-								<td>Rp. 8000000</td>
-								<td>1</td>
+								<td><center><?php echo $u->id_donasi;?></center></td>
+								<td><center>Rp. <?php echo $u->jumlah_donasi;?></center></td>
+								<td><center><?php echo $u->no_agenda;?></center></td>
+								<td><center><?php echo $u->id_donatur;?></center></td>
 							</tr>
+							<?php } ?>
 						</tbody>
 					</table>
 				</div>
